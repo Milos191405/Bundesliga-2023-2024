@@ -3,19 +3,21 @@
 ## Project Overview
 This project aims to analyze team statistics from the Bundesliga 2023/2024 season to identify trends, correlations, and performance patterns. The goal is to understand how different factors contribute to team success and provide valuable insights into playing styles, efficiency, and strengths.
 
+
+
 ## Objectives
 - Collect and structure Bundesliga 2023/2024 team statistics.
 - Perform correlation analysis to identify relationships between key metrics.
 - Cluster teams based on playing style, work rate, and defensive/attacking tendencies.
 - Evaluate efficiency in goal scoring, passing, and sprinting.
 - Identify standout teams and statistical outliers.
-- Use historical data for predictive analysis of future performance.
+- Use historical data for predictive analysis of future performance. ? 
 
 ## Planned Analysis
 ### 1. Correlation Analysis
 We will explore relationships between key performance metrics to understand how certain factors contribute to success:
 - **Do more shots lead to more goals?** (Correlation between "Shots" and "Goals")
-- **Does higher possession lead to more successful passes?** (Correlation between "Possession (%)" and "Successful passes from open play (%)")
+- **Does higher possession lead to more successful passes and more goals?** (Correlation between "Possession (%)" and "Successful passes from open play (%)")
 - **Do teams that run more (distance covered, sprints, intensive runs) perform better?** (Relation to goals scored, wins, or league position)
 
 ### 2. Performance Clustering
@@ -47,7 +49,7 @@ Using historical data, we aim to:
 
 ## Data Sources
 - Bundesliga official statistics ([bundesliga.com](https://www.bundesliga.com/en/bundesliga/stats))
-- Publicly available datasets
+
 
 ## Next Steps
 1. Gather and structure data.
