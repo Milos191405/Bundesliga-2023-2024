@@ -63,6 +63,7 @@ Using historical Bundesliga data to:
 
 
 🚀 Next Steps
+
 1. 📥 Data Collection: Gather and structure team statistics.
 
 2. 📊 Statistical Analysis & Clustering: Perform correlation, efficiency analysis, and cluster teams.
@@ -91,6 +92,6 @@ Using historical Bundesliga data to:
 
 - 📉 Line charts for predictive trends.
 
-##✉️ Contact
+## ✉️ Contact
 
 Have questions or suggestions? Reach out via  [email](https://www.bundesliga.com/en/bundesliga/stats)
