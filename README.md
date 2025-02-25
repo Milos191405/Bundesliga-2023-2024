@@ -22,6 +22,8 @@ We will explore relationships between key performance metrics and rank teams bas
 
 - 🏃 Distance Covered & Sprints: Do teams that run more perform better? (Relation to goals scored, wins, or league position.)
 
+[Correlation Analysis readme.md](https://github.com/Milos191405/Bundesliga-2023-2024/blob/master/Readme_1_correlation_analysis.md)
+
 ### 2️⃣ Performance Clustering
 Teams will be grouped using clustering methods based on:
 
