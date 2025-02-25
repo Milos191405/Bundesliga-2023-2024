@@ -13,6 +13,8 @@ This project aims to analyze team statistics from the Bundesliga 2023/2024 seaso
 - Identify standout teams and statistical outliers.
 - Use historical data for predictive analysis of future performance. ? 
 
+[Files and Tables used for this Analyze (Excel and .csv)](https://drive.google.com/drive/folders/1OpOBN63IkiADnRSjakmCm7Vw45wNWlDc)
+
 ## Planned Analysis
 ### 1️⃣ Correlation Analysis
 We will explore relationships between key performance metrics and rank teams based on their efficiency:
