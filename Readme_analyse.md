@@ -1,6 +1,6 @@
 # Bundesliga 2023/2024 Season Analysis
 
-## ### 1️⃣ Correlation Analysis
+## 1️⃣ Correlation Analysis
 
 ###    ⚽ **Shots vs. Goals:** Do more shots lead to more goals? Rank teams by **Goal Efficiency** (shots per goal) and analyze the strength of the correlation.
 
