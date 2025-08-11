@@ -98,4 +98,5 @@ Using historical Bundesliga data to:
 
 ## ✉️ Contact
 
-Have questions or suggestions? Reach out via  [email] (milos.mirkovic7@gmail.com)
+Have questions or suggestions? Reach out via [Email](mailto:milos.mirkovic7@gmail.com)
+
