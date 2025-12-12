@@ -1,3 +1,39 @@
+SELECT * FROM home_Away_23_24 LIMIT 10;
+SELECT * FROM bundesliga_statistics ORDER BY position ASC LIMIT 10;
+
+
+CREATE TABLE home_Away_23_24 (
+    position INT,
+    team VARCHAR(100),
+    matches INT,
+    wins_total INT,
+    draws_total INT,
+    lost_total INT,
+    goals_scored INT,
+    goals_received INT,
+    goals_difference INT,
+    wins_home INT,
+    draws_home INT,
+    losses_home INT,
+    goals_scored_home INT,
+    goals_received_home INT,
+    goal_difference_home INT,
+    wins_away INT,
+    draws_away INT,
+    losses_away INT,
+    goals_scored_away INT,
+    goals_received_away INT,
+    goal_difference_away INT,
+    total_goals_scored INT,
+    total_goals_received INT,
+    total_goal_difference INT,
+    points_home INT,
+    points_away INT,
+    total_points INT
+);
+
+\copy liga_tabela FROM 'C:/Users/milos/Desktop/Projects/Bundesliga 2023-2024/files/home_away_23_24.csv' DELIMITER ',' CSV HEADER;
+
 DROP TABLE IF EXISTS bundesliga_statistics;
 
 CREATE TABLE bundesliga_statistics (
@@ -51,3 +87,33 @@ INSERT INTO bundesliga_statistics (
 
 select * FROM bundesliga_statistics
 ORDER BY position ASC;
+
+CREATE TABLE Home_Away_23_24 (
+    position INT,
+    team VARCHAR(100),
+    matches INT,
+    wins_total INT,
+    draws_total INT,
+    lost_total INT,
+    goals_scored INT,
+    goals_received INT,
+    goals_difference INT,
+    wins_home INT,
+    draws_home INT,
+    losses_home INT,
+    goals_scored_home INT,
+    goals_received_home INT,
+    goal_difference_home INT,
+    wins_away INT,
+    draws_away INT,
+    losses_away INT,
+    goals_scored_away INT,
+    goals_received_away INT,
+    goal_difference_away INT,
+    total_goals_scored INT,
+    total_goals_received INT,
+    total_goal_difference INT,
+    points_home INT,
+    points_away INT,
+    total_points INT
+);

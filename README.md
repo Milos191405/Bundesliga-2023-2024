@@ -1,101 +1,77 @@
-# 📊 Bundesliga 2023/2024 Season Analysis
+# Bundesliga 2023/2024 Season Analysis
 
-## 📝 Project Overview
-This project aims to analyze team statistics from the Bundesliga 2023/2024 season to identify trends, correlations, and performance patterns. The goal is to understand how different factors contribute to team success and provide valuable insights into playing styles, efficiency, and strengths.
+## Project Overview
+This project analyzes team statistics from the Bundesliga 2023/2024 season to identify trends, correlations, and performance patterns. The main goal is to understand which factors contribute to league standings and highlight differences between higher-ranked and lower-ranked teams. Special attention is given to exploring why Bayer Leverkusen performed so convincingly during the season.
 
-
-
-## 🎯 Objectives
+## Objectives
 - Collect and structure Bundesliga 2023/2024 team statistics.
+- Create new analytical tables to support advanced analysis.
 - Perform correlation analysis to identify relationships between key metrics.
 - Cluster teams based on playing style, work rate, and defensive/attacking tendencies.
 - Evaluate efficiency in goal scoring, passing, and sprinting.
 - Identify standout teams and statistical outliers.
-- Use historical data for predictive analysis of future performance. ? 
+- Perform home vs away performance analysis to explore differences in results.
+- Plan future predictive analysis when additional data becomes available.
+- Develop Power BI dashboards to visualize insights.
 
-[Files and Tables used for this Analyze (Excel and .csv)](https://drive.google.com/drive/folders/1OpOBN63IkiADnRSjakmCm7Vw45wNWlDc)
+## Data Sources
+- Official Bundesliga statistics [bundesliga.com](https://www.bundesliga.com/en/bundesliga/stats)
+- Data collected manually and structured into new tables for analysis.
+
+## Data Files
+The structured tables and datasets used for this analysis are available on [Google Drive](https://drive.google.com/drive/folders/1OpOBN63IkiADnRSjakmCm7Vw45wNWlDc?usp=drive_link).  
+These include all combined tables, derived metrics, and calculated statistics used in SQL analyses and visualizations.
 
 ## Planned Analysis
-### 1️⃣ Correlation Analysis
-We will explore relationships between key performance metrics and rank teams based on their efficiency:
-- ⚽ Shots vs. Goals: Do more shots lead to more goals? Also, rank teams by goals per shot (goal efficiency).
+### Correlation Analysis
+Explore relationships between key performance metrics and league standings:
+- Shots vs. Goals: Does a higher number of shots lead to more goals? Rank teams by goal efficiency (goals per shot).
+- Possession vs. Successful Passes: Does higher possession result in more successful passes and goals? Calculate efficiency metrics (passes per possession, goals per possession).
+- Distance Covered & Sprints: Investigate whether teams with higher work rate perform better in terms of wins and goals.
 
-- 📈 Possession (%) vs. Successful Passes: Does higher possession lead to more successful passes and goals? Rank teams by passing efficiency (successful passes per possession %).
+### Performance Clustering
+Group teams using clustering methods based on:
+- Playing Style: Possession-based vs counter-attacking teams.
+- Work Rate: Distance covered, sprints, intensive runs.
+- Defensive vs Attacking Tendencies: Duels won, aerial duels, fouls committed.
 
-- 🏃 Distance Covered & Sprints: Do teams that run more perform better? (Relation to goals scored, wins, or league position.)
+### Team Strength Profiling
+Categorize teams based on core strengths:
+- Defensive Strength: Fouls, duels won, aerial duels, yellow/red cards.
+- Attacking Strength: Shots, goals, crosses.
+- Work Rate: Distance covered, sprints, intensive runs.
 
-[Correlation Analysis readme.md](https://github.com/Milos191405/Bundesliga-2023-2024/blob/master/Readme_1_correlation_analysis.md)
+### Outlier Detection & Insights
+Identify teams that deviate significantly from league norms, for example:
+- Teams with high aggression (yellow cards, duels won) versus league averages.
+- Teams outperforming or underperforming relative to expected goal efficiency.
 
-### 2️⃣ Performance Clustering
-Teams will be grouped using clustering methods based on:
+### Home vs Away Performance
+Analyze differences in points, wins, and goals scored at home versus away to determine key factors influencing league position.
 
-- 🎮 Playing Style: Possession-based vs. Counter-attacking teams.
+### Predictive Analysis
+When more historical data is available:
+- Predict future team performance based on key metrics.
+- Analyze consistency in results for high work rate teams.
 
-- 🏃‍♂️ Work Rate: Distance covered, sprints, and intensive runs.
+## Next Steps
+1. Data Collection: Gather additional seasonal or historical data.
+2. Statistical Analysis & Clustering: Perform correlation, efficiency analysis, and cluster teams.
+3. Visualization: Develop dashboards and interactive charts in Power BI.
+4. Predictive Modeling: Build and validate models to forecast future performance.
 
-- 🛡 Defensive vs. Attacking Tendencies: Duels won, aerial duels, and fouls committed.
+## Tools & Technologies
+- SQL for data storage, querying, and analysis.
+- Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn) for advanced analysis.
+- Jupyter Notebook for data exploration and visualization.
+- Power BI for interactive dashboards.
+- Machine Learning (K-Means, Hierarchical Clustering) for team grouping and predictive analysis.
 
-###  3️⃣ Team Strength Profiling
+## Visualization Ideas
+- Heatmaps for correlation matrices.
+- Scatter plots for relationships between key metrics.
+- Radar charts for team strength profiles.
+- Line charts for trend analysis and predictive insights.
 
-Teams will be categorized based on their core strengths:
-
-- 🛡 Defensive Strength: Fouls, duels won, aerial duels, yellow cards.
-
-- 🎯 Attacking Strength: Shots, goals, crosses.
-
-- 🏃 Work Rate: Distance covered, sprints, intensive runs.
-
-### 4️⃣ Outlier Detection & Insights
-
-Identifying teams that deviate significantly from league norms:
-
-- 🔍 Example: If VfL Bochum 1848 leads in yellow cards and duels won, does this indicate an aggressive playstyle?
-
-### 5️⃣ Predictive Analysis
-
-Using historical Bundesliga data to:
-
-- 📊 Predict future team performance based on key metrics.
-
-- 🔄 Analyze consistency in results for teams with high work rates (e.g., intensive runs per match).
-
-
-
-## 🔗 Data Sources
-- Bundesliga official statistics ([bundesliga.com](https://www.bundesliga.com/en/bundesliga/stats))
-
-
-
-🚀 Next Steps
-
-1. 📥 Data Collection: Gather and structure team statistics.
-
-2. 📊 Statistical Analysis & Clustering: Perform correlation, efficiency analysis, and cluster teams.
-
-3. 📈 Visualization: Present insights using interactive charts and tables.
-
-4. 🤖 Predictive Modeling: Develop and validate models to forecast future performance.
-
-## 💡 Potential Tools & Technologies
-
-- SQL for data storage, querying, and advanced analysis.
-
-- Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)
-
-- Jupyter Notebook for analysis and visualization.
-
-- Machine Learning for clustering (K-Means, Hierarchical Clustering) and predictive modeling (Regression, Time Series Forecasting).
-
-## 🎨 Visualization Ideas
-
-- ⚡ Heatmaps for correlation matrices.
-
-- 📊 Scatter plots for key metric relationships.
-
-- 🌐 Radar charts for team strength profiles.
-
-- 📉 Line charts for predictive trends.
-
-## ✉️ Contact
-
-Have questions or suggestions? Reach out via  [email](https://www.bundesliga.com/en/bundesliga/stats)
+## Contact
+For questions or collaboration, please reach out via [email](mailto:milos.mirkovic7@gmail.com).

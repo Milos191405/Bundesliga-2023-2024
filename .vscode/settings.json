@@ -17,6 +17,16 @@
             "name": "postgres",
             "database": "bundesliga_23_24",
             "username": "postgres"
+        },
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "localhost",
+            "database": "Bundesliga",
+            "username": "postgres"
         }
     ],
     "cSpell.words": [

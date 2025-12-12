@@ -1,6 +1,6 @@
 SELECT *
 FROM home_away_23_24
-ORDER BY position ASC
+ORDER BY position ASC;
 
 SELECT 
     column_name,
@@ -79,3 +79,27 @@ WHERE
 UPDATE home_away_23_24
 SET
     goals_difference = COALESCE(goals_scored, 0) - COALESCE(goals_received, 0);
+
+SELECT *
+FROM "Statistics_23_24"
+LIMIT 5;
+
+-- Adding ID to each team -- 
+
+ALTER TABLE statistics_23_24
+ADD COLUMN ID int;
+
+ALTER TABLE home_away_23_24
+ADD COLUMN ID int;
+
+UPDATE statistics_23_24
+SET ID = position;
+
+UPDATE home_away_23_24
+SET ID = position;
+
+ALTER TABLE statistics_23_24
+ADD PRIMARY KEY (ID);
+
+ALTER TABLE home_away_23_24
+ADD PRIMARY KEY (ID);
