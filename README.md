@@ -15,7 +15,8 @@ This project analyzes team statistics from the Bundesliga 2023/2024 season to id
 - Develop Power BI dashboards to visualize insights.
 
 ## Data Sources
-- Official Bundesliga statistics [bundesliga statistics](https://www.bundesliga.com/en/bundesliga/stats/overview/2023-2024)
+- Official Bundesliga statistics [Bundesliga Stats 2023/24](https://www.bundesliga.com/en/bundesliga/stats/overview/2023-2024).
+
 - Data collected manually and structured into new tables for analysis.
 
 ## Data Files
