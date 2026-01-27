@@ -74,4 +74,4 @@ When more historical data is available:
 - Line charts for trend analysis and predictive insights.
 
 ## Contact
-For questions or collaboration, please reach out via [email](mailto:milos.mirkovic7@gmail.com).
+For questions or collaboration, please reach out via [milos.mirkovic7@gmail.com](mailto:milos.mirkovic7@gmail.com).
