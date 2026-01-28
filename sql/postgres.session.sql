@@ -1,5 +1,5 @@
 SELECT * FROM home_Away_23_24 LIMIT 10;
-SELECT * FROM bundesliga_statistics ORDER BY position ASC LIMIT 10;
+SELECT * FROM statistic_23_24 ORDER BY position ASC LIMIT 10;
 
 
 CREATE TABLE home_Away_23_24 (

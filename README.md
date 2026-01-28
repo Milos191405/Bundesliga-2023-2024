@@ -1,77 +1,101 @@
 # Bundesliga 2023/2024 Season Analysis
 
-## Project Overview
-This project analyzes team statistics from the Bundesliga 2023/2024 season to identify trends, correlations, and performance patterns. The main goal is to understand which factors contribute to league standings and highlight differences between higher-ranked and lower-ranked teams. Special attention is given to exploring why Bayer Leverkusen performed so convincingly during the season.
+## 📌 Project Overview
+This project is an end-to-end football data analysis of the Bundesliga 2023/2024 season.  
+The goal is to analyze team performance, identify key success factors, and explain league outcomes through structured data analysis and visual storytelling.
 
-## Objectives
-- Collect and structure Bundesliga 2023/2024 team statistics.
-- Create new analytical tables to support advanced analysis.
-- Perform correlation analysis to identify relationships between key metrics.
-- Cluster teams based on playing style, work rate, and defensive/attacking tendencies.
-- Evaluate efficiency in goal scoring, passing, and sprinting.
-- Identify standout teams and statistical outliers.
-- Perform home vs away performance analysis to explore differences in results.
-- Plan future predictive analysis when additional data becomes available.
-- Develop Power BI dashboards to visualize insights.
+The season is particularly interesting because **Bayer Leverkusen won the league undefeated**, providing a strong case for analyzing consistency, efficiency, and tactical balance rather than dominance in a single statistical category.
 
-## Data Sources
-- Official Bundesliga statistics [bundesliga.com](https://www.bundesliga.com/en/bundesliga/stats)
-- Data collected manually and structured into new tables for analysis.
+The project combines **SQL, Python, and Power BI** to move from raw data to actionable insights.
 
-## Data Files
-The structured tables and datasets used for this analysis are available on [Google Drive](https://drive.google.com/drive/folders/1OpOBN63IkiADnRSjakmCm7Vw45wNWlDc?usp=drive_link).  
-These include all combined tables, derived metrics, and calculated statistics used in SQL analyses and visualizations.
+---
 
-## Planned Analysis
-### Correlation Analysis
-Explore relationships between key performance metrics and league standings:
-- Shots vs. Goals: Does a higher number of shots lead to more goals? Rank teams by goal efficiency (goals per shot).
-- Possession vs. Successful Passes: Does higher possession result in more successful passes and goals? Calculate efficiency metrics (passes per possession, goals per possession).
-- Distance Covered & Sprints: Investigate whether teams with higher work rate perform better in terms of wins and goals.
+## 🎯 Objectives
+- Structure and clean raw Bundesliga team statistics
+- Create analytical tables and derived metrics
+- Identify correlations between performance metrics and league position
+- Compare offensive, defensive, and physical performance
+- Analyze Home vs Away consistency
+- Explain league success through data-driven insights
+- Present findings using interactive Power BI dashboards
 
-### Performance Clustering
-Group teams using clustering methods based on:
-- Playing Style: Possession-based vs counter-attacking teams.
-- Work Rate: Distance covered, sprints, intensive runs.
-- Defensive vs Attacking Tendencies: Duels won, aerial duels, fouls committed.
+---
 
-### Team Strength Profiling
-Categorize teams based on core strengths:
-- Defensive Strength: Fouls, duels won, aerial duels, yellow/red cards.
-- Attacking Strength: Shots, goals, crosses.
-- Work Rate: Distance covered, sprints, intensive runs.
+## 🗂️ Data Sources
+- **Official Bundesliga 2023/24 statistics**  
+  https://www.bundesliga.com/en/bundesliga/stats/overview/2023-2024  
+  *(If the link does not open directly, copy and paste it into your browser)*
 
-### Outlier Detection & Insights
-Identify teams that deviate significantly from league norms, for example:
-- Teams with high aggression (yellow cards, duels won) versus league averages.
-- Teams outperforming or underperforming relative to expected goal efficiency.
+- Data manually collected and transformed into structured CSV files for analysis
 
-### Home vs Away Performance
-Analyze differences in points, wins, and goals scored at home versus away to determine key factors influencing league position.
+---
 
-### Predictive Analysis
-When more historical data is available:
-- Predict future team performance based on key metrics.
-- Analyze consistency in results for high work rate teams.
+## 📁 Data Files
+- `statistics_2023_24.csv`  
+  Team-level performance statistics (goals, shots, possession, passes, duels, physical metrics)
 
-## Next Steps
-1. Data Collection: Gather additional seasonal or historical data.
-2. Statistical Analysis & Clustering: Perform correlation, efficiency analysis, and cluster teams.
-3. Visualization: Develop dashboards and interactive charts in Power BI.
-4. Predictive Modeling: Build and validate models to forecast future performance.
+- `home_away_23_24.csv`  
+  Home vs Away performance (points, wins, goals, goal difference)
 
-## Tools & Technologies
-- SQL for data storage, querying, and analysis.
-- Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn) for advanced analysis.
-- Jupyter Notebook for data exploration and visualization.
-- Power BI for interactive dashboards.
-- Machine Learning (K-Means, Hierarchical Clustering) for team grouping and predictive analysis.
+- SQL scripts for analytical queries
+- Python notebooks for exploration and visualization
+- Power BI dashboards for interactive analysis
 
-## Visualization Ideas
-- Heatmaps for correlation matrices.
-- Scatter plots for relationships between key metrics.
-- Radar charts for team strength profiles.
-- Line charts for trend analysis and predictive insights.
+### 🔗 Project Data Files (Google Drive)
+All structured datasets used in this project are available here:  
+https://drive.google.com/drive/folders/1OpOBN63IkiADnRSjakmCm7Vw45wNWlDc?usp=drive_link  
 
-## Contact
-For questions or collaboration, please reach out via [email](mailto:milos.mirkovic7@gmail.com).
+The folder includes:
+- Combined team statistics  
+- Home vs Away performance tables  
+- Derived metrics and calculated indicators  
+- Final datasets used for SQL analysis, Python exploration, and Power BI dashboards  
+
+---
+
+## 📊 Key Insights
+- **Efficiency matters more than volume**  
+  Top teams convert chances more efficiently rather than simply creating more shots.
+
+- **Possession and passing accuracy strongly correlate with success**, but are not the only winning styles.
+
+- **Physical metrics alone do not guarantee results**  
+  High running and sprint numbers must be supported by tactical structure.
+
+- **Home & Away consistency is a major differentiator**  
+  Bayer Leverkusen’s balanced performance explains their unbeaten title-winning season.
+
+---
+
+## 📈 Detailed Analysis
+For a full breakdown of all SQL queries, statistical methods, and Python visualizations used in this project,  
+please refer to the detailed analysis documentation:
+
+➡️ [SQL_README.md](SQL_README.md)
+
+
+---
+
+
+## 🛠️ Tools & Technologies
+- **PostgreSQL** – advanced SQL queries and analytical metrics
+- **Python** (Pandas, NumPy, Matplotlib, Seaborn) – exploratory analysis and visualization
+- **Jupyter Notebook** – exploratory data analysis
+- **Power BI** – interactive dashboards and analytical storytelling
+
+---
+
+## 🔮 Future Improvements
+With the addition of multiple Bundesliga seasons, this dataset could be expanded to support:
+- Trend analysis across seasons
+- More robust statistical comparisons
+- Team profiling across multiple years
+
+Machine Learning is considered a **future extension**, dependent on the availability of a larger historical dataset.
+
+---
+
+## 📬 Contact
+For questions, feedback, or collaboration:
+
+📧 **milos.mirkovic7@gmail.com**
