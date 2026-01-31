@@ -213,3 +213,289 @@ SELECT
     goal_difference_away
 FROM home_away_23_24
 ORDER BY league_position DESC;
+
+-- 13 League-Wide Team-Level Analysis: Bayer Leverkusen vs Rest of League
+
+
+WITH rest_stats AS (
+    SELECT
+        AVG(distance_covered_km) AS avg_distance,
+        STDDEV(distance_covered_km) AS std_distance,
+        AVG(sprints) AS avg_sprints,
+        STDDEV(sprints) AS std_sprints,
+        AVG(intensive_runs) AS avg_intensive,
+        STDDEV(intensive_runs) AS std_intensive,
+        AVG(goals) AS avg_goals,
+        STDDEV(goals) AS std_goals,
+        AVG(possession_percent) AS avg_possession,
+        STDDEV(possession_percent) AS std_possession,
+        AVG(successful_passes_percent) AS avg_passes,
+        STDDEV(successful_passes_percent) AS std_passes
+    FROM statistics_23_24
+    WHERE team != 'Bayer 04 Leverkusen'
+),
+leverkusen AS (
+    SELECT *
+    FROM statistics_23_24
+    WHERE team = 'Bayer 04 Leverkusen'
+)
+
+SELECT 'distance_covered_km' AS metric,
+       l.distance_covered_km AS leverkusen_value,
+       ROUND(r.avg_distance,2) AS league_avg,
+       ROUND((l.distance_covered_km - r.avg_distance) / r.std_distance,2) AS z_score
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+
+SELECT 'sprints',
+       l.sprints,
+       ROUND(r.avg_sprints,2),
+       ROUND((l.sprints - r.avg_sprints) / r.std_sprints,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+
+SELECT 'intensive_runs',
+       l.intensive_runs,
+       ROUND(r.avg_intensive,2),
+       ROUND((l.intensive_runs - r.avg_intensive) / r.std_intensive,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+
+SELECT 'goals',
+       l.goals,
+       ROUND(r.avg_goals,2),
+       ROUND((l.goals - r.avg_goals) / r.std_goals,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+
+SELECT 'possession_percent',
+       l.possession_percent,
+       ROUND(r.avg_possession,2),
+       ROUND((l.possession_percent - r.avg_possession) / r.std_possession,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+
+SELECT 'successful_passes_percent',
+       l.successful_passes_percent,
+       ROUND(r.avg_passes,2),
+       ROUND((l.successful_passes_percent - r.avg_passes) / r.std_passes,2)
+FROM leverkusen l CROSS JOIN rest_stats r;
+
+
+
+-- 14 League-Wide Team-Level Analysis (Home/Away Metrics): Bayer Leverkusen vs Rest of League
+
+WITH rest_stats AS (
+    SELECT
+        AVG(total_points) AS avg_points,
+        STDDEV(total_points) AS std_points,
+        AVG(wins_total) AS avg_wins,
+        STDDEV(wins_total) AS std_wins,
+        AVG(lost_total) AS avg_lost,
+        STDDEV(lost_total) AS std_lost,
+        AVG(goals_scored_home) AS avg_goals_home,
+        STDDEV(goals_scored_home) AS std_goals_home,
+        AVG(goals_scored_away) AS avg_goals_away,
+        STDDEV(goals_scored_away) AS std_goals_away,
+        AVG(goals_received_home) AS avg_goals_received_home,
+        STDDEV(goals_received_home) AS std_goals_received_home,
+        AVG(goals_received_away) AS avg_goals_received_away,
+        STDDEV(goals_received_away) AS std_goals_received_away
+    FROM home_away_23_24
+    WHERE team != 'Bayer 04 Leverkusen'
+),
+leverkusen AS (
+    SELECT *
+    FROM home_away_23_24
+    WHERE team = 'Bayer 04 Leverkusen'
+)
+
+SELECT 'total_points' AS metric,
+       l.total_points AS leverkusen_value,
+       ROUND(r.avg_points,2) AS league_avg,
+       ROUND((l.total_points - r.avg_points)/r.std_points,2) AS z_score
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+SELECT 'wins_total',
+       l.wins_total,
+       ROUND(r.avg_wins,2),
+       ROUND((l.wins_total - r.avg_wins)/r.std_wins,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+SELECT 'lost_total',
+       l.lost_total,
+       ROUND(r.avg_lost,2),
+       ROUND((l.lost_total - r.avg_lost)/r.std_lost,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+SELECT 'goals_scored_home',
+       l.goals_scored_home,
+       ROUND(r.avg_goals_home,2),
+       ROUND((l.goals_scored_home - r.avg_goals_home)/r.std_goals_home,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+SELECT 'goals_scored_away',
+       l.goals_scored_away,
+       ROUND(r.avg_goals_away,2),
+       ROUND((l.goals_scored_away - r.avg_goals_away)/r.std_goals_away,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+SELECT 'goals_received_home',
+       l.goals_received_home,
+       ROUND(r.avg_goals_received_home,2),
+       ROUND((l.goals_received_home - r.avg_goals_received_home)/r.std_goals_received_home,2)
+FROM leverkusen l CROSS JOIN rest_stats r
+
+UNION ALL
+SELECT 'goals_received_away',
+       l.goals_received_away,
+       ROUND(r.avg_goals_received_away,2),
+       ROUND((l.goals_received_away - r.avg_goals_received_away)/r.std_goals_received_away,2)
+FROM leverkusen l CROSS JOIN rest_stats r;
+
+-- League-Wide Correlations: All Key Metrics
+SELECT 
+    'Goals vs Shots' AS metric,
+    ROUND(CORR(goals, shots), 2) AS correlation
+FROM statistics_23_24 s
+JOIN home_away_23_24 ha ON s.team = ha.team
+
+UNION ALL
+
+SELECT 
+    'League Position vs Goals',
+    ROUND(CORR(ha.position, s.goals), 2)
+FROM statistics_23_24 s
+JOIN home_away_23_24 ha ON s.team = ha.team
+
+UNION ALL
+
+SELECT 
+    'Possession vs Successful Passes',
+    ROUND(CORR(possession_percent, successful_passes_percent), 2)
+FROM statistics_23_24
+
+UNION ALL
+
+SELECT 
+    'Possession vs Goals',
+    ROUND(CORR(possession_percent, goals), 2)
+FROM statistics_23_24
+
+UNION ALL
+
+SELECT 
+    'Distance Covered vs Wins',
+    ROUND(CORR(distance_covered_km, wins_total), 2)
+FROM statistics_23_24 s
+JOIN home_away_23_24 ha ON s.team = ha.team
+
+UNION ALL
+
+SELECT 
+    'Sprints vs Wins',
+    ROUND(CORR(sprints, wins_total), 2)
+FROM statistics_23_24 s
+JOIN home_away_23_24 ha ON s.team = ha.team
+
+UNION ALL
+
+SELECT 
+    'Intensive Runs vs Wins',
+    ROUND(CORR(intensive_runs, wins_total), 2)
+FROM statistics_23_24 s
+JOIN home_away_23_24 ha ON s.team = ha.team
+
+UNION ALL
+
+SELECT 
+    'Distance Covered vs Goals',
+    ROUND(CORR(distance_covered_km, goals), 2)
+FROM statistics_23_24;
+
+
+-- League-wide Correlations Summary
+SELECT
+    CORR(goals, shots) AS corr_goals_shots,
+    CORR(possession_percent, successful_passes_percent) AS corr_possession_passes,
+    CORR(distance_covered_km, wins_total) AS corr_distance_wins,
+    CORR(sprints, wins_total) AS corr_sprints_wins,
+    CORR(distance_covered_km, goals) AS corr_distance_goals
+FROM statistics_23_24 s
+JOIN home_away_23_24 ha ON s.team = ha.team;
+
+
+
+-- 15 League-Wide Correlations + Leverkusen vs League Average
+
+WITH league_corr AS (
+    SELECT
+        CORR(goals, shots) AS corr_goals_shots,
+        CORR(possession_percent, successful_passes_percent) AS corr_possession_passes,
+        CORR(distance_covered_km, wins_total) AS corr_distance_wins,
+        CORR(sprints, wins_total) AS corr_sprints_wins,
+        CORR(distance_covered_km, goals) AS corr_distance_goals
+    FROM statistics_23_24 s
+    JOIN home_away_23_24 ha ON s.team = ha.team
+),
+rest_stats AS (
+    SELECT
+        AVG(distance_covered_km) AS avg_distance,
+        STDDEV(distance_covered_km) AS std_distance,
+        AVG(sprints) AS avg_sprints,
+        STDDEV(sprints) AS std_sprints,
+        AVG(goals) AS avg_goals,
+        STDDEV(goals) AS std_goals,
+        AVG(possession_percent) AS avg_possession,
+        STDDEV(possession_percent) AS std_possession,
+        AVG(successful_passes_percent) AS avg_passes,
+        STDDEV(successful_passes_percent) AS std_passes
+    FROM statistics_23_24
+    WHERE team != 'Bayer 04 Leverkusen'
+),
+leverkusen AS (
+    SELECT *
+    FROM statistics_23_24
+    WHERE team = 'Bayer 04 Leverkusen'
+)
+
+SELECT 
+    'League-Wide' AS type,
+    corr_goals_shots,
+    corr_possession_passes,
+    corr_distance_wins,
+    corr_sprints_wins,
+    corr_distance_goals,
+    NULL AS leverkusen_distance_z,
+    NULL AS leverkusen_sprints_z,
+    NULL AS leverkusen_goals_z,
+    NULL AS leverkusen_possession_z,
+    NULL AS leverkusen_passes_z
+FROM league_corr
+
+UNION ALL
+
+SELECT
+    'Leverkusen vs League' AS type,
+    NULL, NULL, NULL, NULL, NULL,
+    ROUND((l.distance_covered_km - r.avg_distance) / r.std_distance, 2) AS leverkusen_distance_z,
+    ROUND((l.sprints - r.avg_sprints) / r.std_sprints, 2) AS leverkusen_sprints_z,
+    ROUND((l.goals - r.avg_goals) / r.std_goals, 2) AS leverkusen_goals_z,
+    ROUND((l.possession_percent - r.avg_possession) / r.std_possession, 2) AS leverkusen_possession_z,
+    ROUND((l.successful_passes_percent - r.avg_passes) / r.std_passes, 2) AS leverkusen_passes_z
+FROM leverkusen l
+CROSS JOIN rest_stats r;
+
+
+
+
